@@ -56,4 +56,5 @@ This project was built as a learning exercise to explore computer vision, text p
 
 Clone the repository and install dependencies:
 
-<pre> ```bash pip install -r requirements.txt ``` </pre>
+
+<pre>```bash pip install -r requirements.txt```</pre>
