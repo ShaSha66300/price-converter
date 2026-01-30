@@ -35,3 +35,25 @@ This project was built as a learning exercise to explore computer vision, text p
 4. Prices are converted using live exchange rates via **forex-python**.
 
 5. The converted values are displayed on the image alongside the original price.
+
+## Project Structure
+
+- webcam.py – Real-time webcam-based price detection
+
+- static_image.py – Image-based price detection
+
+- ocr.py – OCR handling using EasyOCR
+
+- price_parser.py – Price extraction and currency association
+
+- currency.py – Currency conversion logic
+
+- text_normalizer.py – Fixes common OCR currency symbol errors
+
+- images/ – Sample images for testing
+
+## Installation
+
+Clone the repository and install dependencies:
+
+<pre> ```bash pip install -r requirements.txt ``` </pre>
