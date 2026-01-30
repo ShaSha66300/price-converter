@@ -1,10 +1,12 @@
 # Price Converter (OCR-Based)
 
+
 ## Overview
 
 Price Converter is a Python application that detects prices from images or a live webcam feed using Optical Character Recognition (OCR), identifies the associated currency, and converts detected prices into a target currency.
 
-This project was built as a learning exercise to explore computer vision, text processing, and API-based currency conversion. The goal was to create a practical tool that could help travelers quickly understand foreign prices without manually converting each one.
+This project was developed to explore computer vision, text processing, and API-based currency conversion in a practical context. The goal was to create a practical tool that could help travelers quickly understand foreign prices without manually converting each one.
+
 
 ## Features
 
@@ -24,17 +26,19 @@ This project was built as a learning exercise to explore computer vision, text p
 
 - Basic OCR error correction for common currency misreads
 
+
 ## How It Works
 
 1. The application captures an image (from a file or webcam).
 
 2. EasyOCR detects text regions and returns bounding boxes with confidence scores.
 
-3. A custom price parser extracts numeric values and associates them with detected currencies.
+3. A custom price parser extracts numeric values using regular expressions and associates them with detected currencies.
 
 4. Prices are converted using live exchange rates via **forex-python**.
 
 5. The converted values are displayed on the image alongside the original price.
+
 
 ## Project Structure
 
@@ -52,34 +56,36 @@ This project was built as a learning exercise to explore computer vision, text p
 
 - images/ – Sample images for testing
 
+
 ## Installation
 
 Clone the repository and install dependencies:
 
-<pre>
-  bash
+```
+bash
   
 pip install -r requirements.txt
-</pre>
+```
+
 
 ## Usage
 
 Run static image mode:
 
-<pre>
-  bash
+```
+bash
   
-  python static_image.py
-</pre>
+python static_image.py
+```
 
 
 Run webcam mode:
 
-<pre>
-  bash
+```
+bash
   
-  python webcam.py
-</pre>
+python webcam.py
+```
 
 
 In webcam mode:
@@ -92,17 +98,18 @@ In webcam mode:
 
 
 
-## Known Limitations
+## Expected Outputs
 
-- OCR accuracy depends heavily on lighting, camera quality, and text clarity.
+- Below is an example of the webcam mode detecting a price in JPY and converting it to EUR in real time.
 
-- Exchange rates are retrieved at runtime and require an internet connection.
+![Webcam price detection example](assets/webcam-conversion-demo.jpg)
 
-- Complex price formats (e.g., thousands separators in different locales) may not always be parsed correctly.
 
-- Real-time processing is not continuous by default in webcam mode (manual trigger required).
 
-- The application is optimized for learning purposes, not production deployment.
+- Example output from static_image.py converting JPY prices to EUR using a sample image.
+
+![Static image price detection example](assets/static-image-conversion-demo.jpg)
+
 
 ## Learning Goals
 
@@ -117,6 +124,20 @@ This project was developed to:
 - Integrate third-party APIs
 
 - Structure a small but complete Python application
+
+
+## Known Limitations
+
+- OCR accuracy depends heavily on lighting, camera quality, and text clarity.
+
+- Exchange rates are retrieved at runtime and require an internet connection.
+
+- Complex price formats (e.g., thousands separators in different locales) may not always be parsed correctly.
+
+- Real-time processing is not continuous by default in webcam mode (manual trigger required).
+
+- The application is optimized for learning purposes, not production deployment.
+
 
 ## License
 
