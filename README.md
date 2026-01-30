@@ -57,10 +57,38 @@ This project was built as a learning exercise to explore computer vision, text p
 Clone the repository and install dependencies:
 
 <pre>
-```bash
+  bash
+  
 pip install -r requirements.txt
-```
 </pre>
+
+## Usage
+
+Run static image mode:
+
+<pre>
+  bash
+  
+  python static_image.py
+</pre>
+
+
+Run webcam mode:
+
+<pre>
+  bash
+  
+  python webcam.py
+</pre>
+
+
+In webcam mode:
+
+- Press **t** to trigger OCR and conversion
+
+- Press **c** to clear results
+
+- Press **q** to quit
 
 
 
