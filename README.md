@@ -56,5 +56,40 @@ This project was built as a learning exercise to explore computer vision, text p
 
 Clone the repository and install dependencies:
 
+<pre>
+```bash
+pip install -r requirements.txt
+```
+</pre>
 
-<pre>```bash pip install -r requirements.txt```</pre>
+
+
+## Known Limitations
+
+- OCR accuracy depends heavily on lighting, camera quality, and text clarity.
+
+- Exchange rates are retrieved at runtime and require an internet connection.
+
+- Complex price formats (e.g., thousands separators in different locales) may not always be parsed correctly.
+
+- Real-time processing is not continuous by default in webcam mode (manual trigger required).
+
+- The application is optimized for learning purposes, not production deployment.
+
+## Learning Goals
+
+This project was developed to:
+
+- Understand how OCR systems work in practice
+
+- Implement pattern-based text parsing using regular expressions
+
+- Handle noisy input data
+
+- Integrate third-party APIs
+
+- Structure a small but complete Python application
+
+## License
+
+This project is licensed under the MIT License.
