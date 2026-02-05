@@ -5,7 +5,7 @@ from src.currency import convert_price
 class TestCurrency(unittest.TestCase):
 
     # We "patch" the _rates object inside currency.py so we don't hit the real internet
-    @patch('currency._rates') 
+    @patch('src.currency._rates') 
     def test_convert_price_success(self, mock_rates):
         # Configure the mock to return 1.5 when get_rate is called
         mock_rates.get_rate.return_value = 1.5 
@@ -29,3 +29,4 @@ class TestCurrency(unittest.TestCase):
 if __name__ == '__main__':
 
     unittest.main()
+
