@@ -20,7 +20,7 @@ install:
 
 .PHONY: test
 test:
-	$(PYTHON) -m unittest discover tests
+	$(PYTHON) -m unittest discover -s tests -t .
 
 .PHONY: run
 run:
