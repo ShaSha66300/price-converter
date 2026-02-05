@@ -6,38 +6,27 @@
 
 Price Converter is a Python application that detects prices from images or a live webcam feed using Optical Character Recognition (OCR), identifies the associated currency, and converts detected prices into a target currency.
 
-This project was developed to explore computer vision, text processing, and API-based currency conversion in a practical context. The goal was to create a practical tool that could help travelers quickly understand foreign prices without manually converting each one.
+This project was developed with an AI-native approach ([See Development Methodology](#development-methodology-ai-native-approach)) to explore computer vision, text processing, and API-based currency conversion in a practical context. The goal was to create a practical tool that could help travelers quickly understand foreign prices without manually converting each one.
 
 
 ## Features
 
 - OCR-based text detection using EasyOCR
-
 - Automatic price extraction with currency recognition
-
 - Support for symbols and codes (€, $, £, ¥, EUR, USD, GBP, JPY, 円)
-
 - Optional default currency and manual currency override
-
 - Real-time webcam mode
-
 - Static image processing mode
-
 - Noise filtering (confidence threshold, minimum price value)
-
 - Basic OCR error correction for common currency misreads
 
 
 ## How It Works
 
 1. The application captures an image (from a file or webcam).
-
 2. EasyOCR detects text regions and returns bounding boxes with confidence scores.
-
 3. A custom price parser extracts numeric values using regular expressions and associates them with detected currencies.
-
 4. Prices are converted using live exchange rates via **forex-python**.
-
 5. The converted values are displayed on the image alongside the original price.
 
 
@@ -60,9 +49,7 @@ The project follows a modular structure to separate logic, entry points, and tes
 
 Clone the repository and install dependencies:
 
-```
-bash
-  
+```bash
 pip install -r requirements.txt
 ```
 
@@ -71,18 +58,14 @@ pip install -r requirements.txt
 
 Run static image mode:
 
-```
-bash
-  
+```bash
 python static_image.py
 ```
 
 
 Run webcam mode:
 
-```
-bash
-  
+```bash
 python webcam.py
 ```
 
@@ -102,16 +85,13 @@ This project includes a suite of unit tests to ensure accurate price parsing and
 
 To run the tests:
 
-```
-bash
-
+```bash
 # Run all tests via Makefile
 make test
 
 # Or using unittest directly
 python -m unittest discover tests
 ```
-
 
 ## Expected Outputs
 
@@ -143,6 +123,17 @@ This project was developed to:
 - Complex price formats (e.g., thousands separators in different locales) may not always be parsed correctly.
 - Real-time processing is not continuous by default in webcam mode (manual trigger required).
 - The application is optimized for learning purposes, not production deployment.
+
+
+## Development Methodology: AI-Native Approach
+
+- **Role of AI:** Acts as the primary implementation engine. I utilized LLMs to generate the main core syntax, including OCR integration and API handling.
+- **Role of Engineer:** Focused on **Architecture, Integration, and Verification**. My primary responsibilities were:
+    - Designing the project structure.
+    - Debugging integration issues (e.g., fixing `unittest.mock` pathing errors).
+    - Setting up the CI/CD pipeline to ensure the AI-generated code remains stable.
+
+This approach aligns with the philosophy of **"Maximizing Output with Technology"**, allowing a single developer to build, test, and deploy a full-stack application in a fraction of the traditional time. It allowed me to focus my energy on the architectural decisions and the specific OCR logic, while automating the "boilerplate" engineering tasks.
 
 
 ## License
