@@ -1,5 +1,6 @@
 # Price Converter (OCR-Based)
 
+![Build Status](https://github.com/ShaSha66300/price-converter/actions/workflows/test.yml/badge.svg)
 
 ## Overview
 
@@ -42,19 +43,17 @@ This project was developed to explore computer vision, text processing, and API-
 
 ## Project Structure
 
-- webcam.py – Real-time webcam-based price detection
+The project follows a modular structure to separate logic, entry points, and tests:
 
-- static_image.py – Image-based price detection
-
-- ocr.py – OCR handling using EasyOCR
-
-- price_parser.py – Price extraction and currency association
-
-- currency.py – Currency conversion logic
-
-- text_normalizer.py – Fixes common OCR currency symbol errors
-
-- images/ – Sample images for testing
+- `src/`
+  - `webcam.py` – Entry point for real-time webcam mode
+  - `static_image.py` – Entry point for image-based detection
+  - `ocr.py` – Wraps EasyOCR functionality
+  - `price_parser.py` – Regex logic for extracting prices
+  - `currency.py` – Handles API communication and conversion
+- `tests/` – Unit tests ensuring reliability of parsers and converters
+- `Makefile` – Automation for installation and testing
+- `.github/workflows/` – CI/CD pipeline configuration
 
 
 ## Installation
@@ -97,6 +96,22 @@ In webcam mode:
 - Press **q** to quit
 
 
+## Development & Testing
+
+This project includes a suite of unit tests to ensure accurate price parsing and currency conversion logic.
+
+To run the tests:
+
+```
+bash
+
+# Run all tests via Makefile
+make test
+
+# Or using unittest directly
+python -m unittest discover tests
+```
+
 
 ## Expected Outputs
 
@@ -114,28 +129,19 @@ In webcam mode:
 ## Learning Goals
 
 This project was developed to:
-
 - Understand how OCR systems work in practice
-
 - Implement pattern-based text parsing using regular expressions
-
-- Handle noisy input data
-
-- Integrate third-party APIs
-
-- Structure a small but complete Python application
+- **Implement Unit Testing (unittest) and mocking external APIs**
+- **Set up CI/CD pipelines using GitHub Actions**
+- Structure a modular Python application
 
 
 ## Known Limitations
 
 - OCR accuracy depends heavily on lighting, camera quality, and text clarity.
-
 - Exchange rates are retrieved at runtime and require an internet connection.
-
 - Complex price formats (e.g., thousands separators in different locales) may not always be parsed correctly.
-
 - Real-time processing is not continuous by default in webcam mode (manual trigger required).
-
 - The application is optimized for learning purposes, not production deployment.
 
 
