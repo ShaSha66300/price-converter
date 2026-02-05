@@ -32,8 +32,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run Unit Tests
-      # THIS IS THE FIX: We tell Python to look in the current folder (.)
-      env:
-        PYTHONPATH: .
+      # We use '-s tests' to search inside the tests folder
+      # We use '-t .' to tell Python the "Top" folder is the current directory
       run: |
-        python -m unittest discover tests
+        python -m unittest discover -s tests -t .
