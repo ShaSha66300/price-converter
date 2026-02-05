@@ -1,5 +1,5 @@
 import unittest
-from price_parser import extract_prices
+from src.price_parser import extract_prices
 
 class TestPriceParser(unittest.TestCase):
     
@@ -22,4 +22,5 @@ class TestPriceParser(unittest.TestCase):
         self.assertEqual(len(results), 0)
 
 if __name__ == '__main__':
+
     unittest.main()
