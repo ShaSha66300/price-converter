@@ -17,7 +17,7 @@ class TestCurrency(unittest.TestCase):
         # Verify get_rate was actually called with right arguments
         mock_rates.get_rate.assert_called_with("USD", "EUR")
 
-    @patch('currency._rates')
+    @patch('src.currency._rates')
     def test_api_failure(self, mock_rates):
         # Simulate an API crash
         mock_rates.get_rate.side_effect = Exception("API Down")
@@ -29,4 +29,5 @@ class TestCurrency(unittest.TestCase):
 if __name__ == '__main__':
 
     unittest.main()
+
 
