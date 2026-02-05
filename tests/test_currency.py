@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from currency import convert_price
+from src.currency import convert_price
 
 class TestCurrency(unittest.TestCase):
 
@@ -27,4 +27,5 @@ class TestCurrency(unittest.TestCase):
         self.assertEqual(result, 100)
 
 if __name__ == '__main__':
+
     unittest.main()
