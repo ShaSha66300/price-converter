@@ -20,14 +20,14 @@ jobs:
       with:
         python-version: "3.10"
 
-    # 3. CRITICAL FIX: Install Linux libraries for OpenCV
-    # Without this, the test runner crashes when importing cv2/easyocr
+    # 3. Install System Dependencies (Updated for Ubuntu 24.04)
+    # We replaced 'libgl1-mesa-glx' with 'libgl1'
     - name: Install system dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y libgl1-mesa-glx libglib2.0-0
+        sudo apt-get install -y libgl1 libglib2.0-0
 
-    # 4. Cache Pip (Speeds up future runs)
+    # 4. Cache Pip
     - name: Cache pip
       uses: actions/cache@v3
       with:
@@ -43,7 +43,7 @@ jobs:
         pip install -r requirements.txt
 
     # 6. Run Tests
-    # We use '-t .' to ensure the root folder is included in imports
+    # Uses '-t .' to correctly find your python files in the root folder
     - name: Run Unit Tests
       run: |
         python -m unittest discover -s tests -t .
