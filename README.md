@@ -32,18 +32,28 @@ This project was developed with an AI-native approach ([See Development Methodol
 
 ## Project Structure
 
-The project follows a modular structure to separate logic, entry points, and tests:
+This project follows a production-grade directory structure, separating source code (`src/`), unit tests (`tests/`), and infrastructure configuration (`.github/`, `Dockerfile`).
 
-- `src/`
-  - `webcam.py` – Entry point for real-time webcam mode
-  - `static_image.py` – Entry point for image-based detection
-  - `ocr.py` – Wraps EasyOCR functionality
-  - `price_parser.py` – Regex logic for extracting prices
-  - `currency.py` – Handles API communication and conversion
-- `tests/` – Unit tests ensuring reliability of parsers and converters
-- `Makefile` – Automation for installation and testing
-- `.github/workflows/` – CI/CD pipeline configuration
-
+```text
+.
+├── .github/workflows/
+│   └── test.yml             # CI/CD Pipeline (Runs tests on every push)
+├── src/
+│   ├── webcam.py            # Entry point: Real-time video processing
+│   ├── static_image.py      # Entry point: Static image CLI tool
+│   ├── currency.py          # Currency API handling & rate caching
+│   ├── ocr.py               # EasyOCR model wrapper
+│   ├── price_parser.py      # Regex logic for extracting prices
+│   └── text_normalizer.py   # Post-processing for OCR error correction
+├── tests/
+│   ├── test_currency.py     # API mocking tests
+│   ├── test_price_parser.py # Regex logic unit tests
+│   └── test_text_normalizer.py
+├── images/                  # Test dataset (Menus, receipts, etc.)
+├── Dockerfile               # Production container configuration
+├── Makefile                 # Developer shortcuts (make run, make test)
+└── requirements.txt         # Python dependencies
+```
 
 ## Installation
 
