@@ -2,16 +2,20 @@
 PYTHON = python
 PIP = pip
 
+# Default Image for the "make run" demo
+IMAGE ?= images/mcdonalds.jpg
+TARGET ?= EUR
+
 # Default target
 .PHONY: help
 help:
 	@echo "Available commands:"
-	@echo "  make install   - Install dependencies"
-	@echo "  make test      - Run unit tests"
-	@echo "  make run       - Run the static image demo"
-	@echo "  make webcam    - Run the webcam demo"
-	@echo "  make clean     - Remove temporary files"
-	@echo "  make docker    - Build the Docker image"
+	@echo "  make install    - Install dependencies"
+	@echo "  make test       - Run unit tests"
+	@echo "  make run        - Run the static image demo"
+	@echo "  make webcam     - Run the webcam demo"
+	@echo "  make clean      - Remove temporary files"
+	@echo "  make docker     - Build the Docker image"
 
 # Install dependencies
 .PHONY: install
@@ -20,15 +24,16 @@ install:
 
 .PHONY: test
 test:
-	$(PYTHON) -m unittest discover -s tests -t .
+	export PYTHONPATH=$PYTHONPATH:$(PWD)/src; \
+	$(PYTHON) -m unittest discover -s tests
 
 .PHONY: run
 run:
-	$(PYTHON) static_image.py images/mcdonalds.jpg --target EUR
+	$(PYTHON) src/static_image.py $(IMAGE) --target $(TARGET)
 
 .PHONY: webcam
 webcam:
-	$(PYTHON) webcam.py --target EUR
+	$(PYTHON) src/webcam.py --target $(TARGET)
 
 .PHONY: docker
 docker:
@@ -38,5 +43,6 @@ docker:
 .PHONY: clean
 clean:
 	rm -rf __pycache__
+	rm -rf src/__pycache__
 	rm -rf tests/__pycache__
 	rm -rf .pytest_cache
